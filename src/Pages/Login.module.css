@@ -1,0 +1,147 @@
+/* Login.module.css */
+
+.login_bg {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-container {
+  position: relative;
+  padding: 2rem;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.login-container h2 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.square {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  animation: move 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+
+.square:nth-child(1) {
+  top: -70px;
+  right: -60px;
+  width: 100px;
+  height: 100px;
+}
+
+.square:nth-child(2) {
+  top: 130px;
+  left: -100px;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+
+.square:nth-child(3) {
+  bottom: 50px;
+  right: -60px;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+}
+
+.square:nth-child(4) {
+  bottom: -40px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+.square:nth-child(5) {
+  top: -40px;
+  left: 140px;
+  width: 60px;
+  height: 60px;
+}
+
+@keyframes move {
+  0%, 100% {
+      transform: translateY(-20px);
+  }
+
+  50% {
+      transform: translateY(20px);
+  }
+}
+
+/* .inputField {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  border-radius: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+} */
+
+.inputField::placeholder {
+  color: black;
+}
+
+.submitButton {
+  background: white;
+  color: #1c1c1cbf;
+  font-weight: 700;
+  max-width: 100px;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 35px;
+  justify-items: center;
+  align-items: center;
+  
+}
+
+.submitButton:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transition: all 0.3s;
+}
+
+.forgotPassword {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 470px) {
+  .login-container {
+      width: 300px;
+      padding: 1.5rem;
+  }
+}
