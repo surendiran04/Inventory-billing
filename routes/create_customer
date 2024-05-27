@@ -1,0 +1,51 @@
+const express = require('express');
+const router = express.Router();
+const db= require('../models/db');
+const customer=require('../controller/customer');
+
+
+router.use(express.json());
+const users = [
+  { username: 'user1', password: 'pass1' }
+  
+];
+const user ={ username: 'user1', password: 'pass1', email: 'dhinagar@gmail.com',address: 'pkt' };
+
+
+router.post('/register-customer', async (req, res) => {
+    
+  try {
+    console.log(req.body);
+     result= await customer.createCustomer(db,req.body);    
+    if (result) {
+        res.status(200).json({ "message": "Successfully inserted" });
+    } else {
+        res.status(403).json({ "error": "Id exist already" });
+    }
+} 
+catch (error) {
+    console.error('Error creating subject:', error);
+    res.status(500).json({ "error": "Internal server error" });
+}
+
+});
+
+router.post('/customer-login', async (req, res) => {
+  
+    try {
+            result=await customer.login(db,req.body);
+            console.log('res',result);         
+            if (result) {
+               res.status(200).json({ "message": "Successfully loggedin" });
+           } else {
+               res.status(403).json({ "error": "Failed to login" });
+           }
+       } 
+       catch (error) {
+           console.error(' server Error', error);
+           res.status(500).json({ "error": "Internal server error" });
+       }
+
+});
+
+module.exports = router
